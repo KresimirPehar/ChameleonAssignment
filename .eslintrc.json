@@ -29,16 +29,16 @@
         "assert": "both",
         "depth": 3
       }
-    ],
-    "globals": {
-      "window": true,
-      "document": true,
-      "localStorage": true,
-      "FormData": true,
-      "FileReader": true,
-      "Blob": true,
-      "navigator": true
-    },
-    "parser": "babel-eslint"
-  }
+    ]
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true
+  },
+  "parser": "babel-eslint"
 }

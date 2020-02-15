@@ -33,8 +33,8 @@ const LoginForm = () => {
         />
       </PasswordInputContainer>
       <OptionsContainer>
-        <label>
-          <input type='checkbox' />
+        <label htmlFor='checkbox'>
+          <input type='checkbox' id='checkbox' />
           Remember me
         </label>
         <span>Forgot password?</span>

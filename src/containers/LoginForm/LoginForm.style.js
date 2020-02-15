@@ -38,6 +38,18 @@ const Input = styled.input`
   }
 `;
 
+const PasswordInputContainer = styled.div`
+  position: relative;
+
+  .eyeIcon {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: ${Colors.accent};
+    cursor: pointer;
+  }
+`;
+
 const CheckboxInput = styled.input`
   ${sizeMixin('24px', '24px')}
 `;
@@ -99,6 +111,7 @@ export {
   LoginFormContainer,
   LoginLogo,
   Input,
+  PasswordInputContainer,
   CheckboxInput,
   OptionsContainer,
   Button

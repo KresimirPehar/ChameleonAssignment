@@ -1,7 +1,13 @@
 import React from 'react';
+import Header from '../../components/Header/Header';
 
 const TodoPage = () => {
-  return <div>Todo page</div>;
+  return (
+    <>
+      <Header />
+      Todo page
+    </>
+  );
 };
 
 export default TodoPage;

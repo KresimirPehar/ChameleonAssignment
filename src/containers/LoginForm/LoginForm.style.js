@@ -3,6 +3,13 @@ import Colors from '../../constants/colors';
 import sizeMixin from '../../utils/baseStyle';
 
 const LoginFormContainer = styled.div`
+  ${sizeMixin('inherit', 'inherit')}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Form = styled.div`
   ${sizeMixin('440px', '504px')}
   display: flex;
   flex-direction: column;
@@ -126,6 +133,7 @@ const Button = styled.button`
 `;
 
 export {
+  Form,
   LoginFormContainer,
   LoginLogo,
   Input,

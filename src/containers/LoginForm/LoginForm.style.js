@@ -41,7 +41,6 @@ const Input = styled.input`
   font-weight: 400;
   line-height: 19px;
   border: 1px solid ${Colors.accent};
-  overflow: hidden;
   letter-spacing: 1px;
   caret-color: ${Colors.primary};
 

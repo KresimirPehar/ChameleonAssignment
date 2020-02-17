@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon as ShowHidePasswordIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/LoginFormLogo.png';
 import {
   Input,
@@ -49,7 +50,9 @@ const LoginForm = () => {
         </label>
         <span>Forgot password?</span>
       </OptionsContainer>
-      <Button>Login</Button>
+      <Link to='todo'>
+        <Button>Login</Button>
+      </Link>
     </LoginFormContainer>
   );
 };

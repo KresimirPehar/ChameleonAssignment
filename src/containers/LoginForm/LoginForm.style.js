@@ -18,11 +18,24 @@ const LoginLogo = styled.img`
   margin-bottom: 60px;
 `;
 
+const InputContainer = styled.div`
+  position: relative;
+  margin-bottom: 40px;
+
+  .eyeIcon {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: ${Colors.accent};
+    cursor: pointer;
+  }
+`;
+
 const Input = styled.input`
   ${sizeMixin('292px', '40px')}
+  position: relative;
   padding-left: 20px;
   border-radius: 4px;
-  margin-bottom: 40px;
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
@@ -32,21 +45,27 @@ const Input = styled.input`
   letter-spacing: 1px;
   caret-color: ${Colors.primary};
 
+  + span {
+    position: absolute;
+    top: ${props => (props.value.length > 0 ? '-10px' : '13px')};
+    left: 25px;
+    color: ${props => (props.value.length > 0 ? '#000' : `${Colors.accent}`)};
+    letter-spacing: ${props => (props.value.length > 0 ? 0 : '1px')};
+    transition: 0.5s;
+    background-color: ${props => (props.value.length > 0 ? '#fff' : null)};
+  }
+
   &:focus {
     outline-width: 4px;
     outline-offset: -2px;
   }
-`;
 
-const PasswordInputContainer = styled.div`
-  position: relative;
-
-  .eyeIcon {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    color: ${Colors.accent};
-    cursor: pointer;
+  &:focus + span {
+    top: -10px;
+    color: #000;
+    background-color: #fff;
+    transition: 0.5s;
+    letter-spacing: 0;
   }
 `;
 
@@ -111,7 +130,7 @@ export {
   LoginFormContainer,
   LoginLogo,
   Input,
-  PasswordInputContainer,
+  InputContainer,
   CheckboxInput,
   OptionsContainer,
   Button

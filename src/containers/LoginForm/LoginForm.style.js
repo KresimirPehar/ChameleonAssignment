@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Colors from '../../constants/colors';
-import sizeMixin from '../../utils/baseStyle';
+import sizeMixin from '../../utils/mixins';
 
 const LoginFormContainer = styled.div`
   ${sizeMixin('inherit', 'inherit')}

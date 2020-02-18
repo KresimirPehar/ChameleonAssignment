@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import sizeMixin from './baseStyle';
+import sizeMixin from './mixins';
 
 const GlobalStyles = createGlobalStyle`
     html {

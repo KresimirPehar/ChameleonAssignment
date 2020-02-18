@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import sizeMixin from '../../utils/baseStyle';
+import sizeMixin from '../../utils/mixins';
 import colors from '../../constants/colors';
 
 const Item = styled.div`

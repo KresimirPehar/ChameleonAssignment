@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import sizeMixin from '../../utils/baseStyle';
+import sizeMixin from '../../utils/mixins';
 
 const HeaderContainer = styled.div`
   background-color: #232c33;

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import sizeMixin from './mixins';
+import colors from '../constants/colors';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -8,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     
     body {
         margin: 0;
-        background-color: #F1F1F1;
+        background-color: ${colors.bgColor};
     }
     
     html, body, #root {

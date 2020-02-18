@@ -21,6 +21,8 @@ const Logo = styled.div`
 const UserAvatar = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
+  cursor: pointer;
 
   span {
     color: #ffffff;
@@ -34,7 +36,6 @@ const UserAvatar = styled.div`
   img {
     ${sizeMixin('40px', '40px')}
     border-radius: 100%;
-    cursor: pointer;
   }
 `;
 

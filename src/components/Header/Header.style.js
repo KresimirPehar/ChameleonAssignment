@@ -5,6 +5,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   grid-column: 1/4;
+  z-index: 1;
 `;
 
 const Elements = styled.div`

@@ -11,4 +11,10 @@ const Title = styled.div`
   flex-direction: column;
 `;
 
-export { MainContainer, Title };
+const Image = styled.img`
+  position: relative;
+  top: -60px;
+  z-index: 0;
+`;
+
+export { MainContainer, Title, Image };

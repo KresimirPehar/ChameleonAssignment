@@ -5,6 +5,7 @@ import colors from '../constants/colors';
 const GlobalStyles = createGlobalStyle`
     html {
         overflow: hidden;
+        font-family: Roboto;
     }
     
     body {

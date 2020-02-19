@@ -43,7 +43,6 @@ const Input = styled.input`
   position: relative;
   padding-left: 20px;
   border-radius: 4px;
-  font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
@@ -85,7 +84,6 @@ const OptionsContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   color: ${Colors.accent};
-  font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -104,7 +102,6 @@ const OptionsContainer = styled.div`
     color: ${Colors.primary};
     font-weight: 500;
     cursor: pointer;
-    font-family: Roboto;
     font-size: 14px;
     line-height: 17px;
   }
@@ -116,7 +113,6 @@ const Button = styled.button`
   color: #ffffff;
   background-color: ${Colors.primary};
   border-radius: 4px;
-  font-family: Roboto;
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;

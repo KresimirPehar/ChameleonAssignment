@@ -38,7 +38,6 @@ const UserAvatar = styled.div`
 
   span {
     color: #ffffff;
-    font-family: Roboto;
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;

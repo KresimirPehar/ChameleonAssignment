@@ -27,7 +27,6 @@ const Item = styled.div`
 
   span {
     color: #222222;
-    font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;

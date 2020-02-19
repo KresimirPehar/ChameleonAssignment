@@ -68,8 +68,8 @@ const Input = styled.input`
 
   &:focus + span {
     top: -10px;
-    color: #000;
-    background-color: #fff;
+    color: #000000;
+    background-color: #ffffff;
     transition: 0.5s;
     letter-spacing: 0;
   }

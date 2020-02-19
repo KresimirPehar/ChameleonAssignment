@@ -6,7 +6,7 @@ const Item = styled.div`
   ${sizeMixin('240px', '64px')};
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff;
   position: absolute;
   top: 50px;
   right: -20px;

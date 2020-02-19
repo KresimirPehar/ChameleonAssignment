@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../constants/colors';
 
 const MainContainer = styled.div`
   display: flex;
@@ -9,6 +10,24 @@ const MainContainer = styled.div`
 const Title = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: 65px;
+
+  h1 {
+    margin-bottom: 10px;
+    color: #222222;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 58px;
+  }
+
+  h4 {
+    margin: 0;
+    color: ${colors.accent};
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+  }
 `;
 
 const Image = styled.img`

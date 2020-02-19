@@ -2,16 +2,24 @@ import styled from 'styled-components';
 import sizeMixin from '../../utils/mixins';
 
 const HeaderContainer = styled.div`
-  background-color: #232c33;
-  height: 80px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  grid-column: 1/4;
+`;
+
+const Elements = styled.div`
+  ${sizeMixin('100vw', '80px')}
+  display: grid;
+  grid-template-columns: 15% 1fr 15%;
+  background-color: #232c33;
 `;
 
 const Logo = styled.div`
   ${sizeMixin('40px', '40px')}
   display: flex;
+  grid-column: 2;
+  position: relative;
+  top: 50%;
 
   img {
     margin-right: 10px;
@@ -20,8 +28,11 @@ const Logo = styled.div`
 
 const UserAvatar = styled.div`
   display: flex;
+  justify-self: end;
   align-items: center;
+  grid-column: 2;
   position: relative;
+  bottom: 50%;
   cursor: pointer;
 
   span {
@@ -39,4 +50,4 @@ const UserAvatar = styled.div`
   }
 `;
 
-export { HeaderContainer, Logo, UserAvatar };
+export { HeaderContainer, Elements, Logo, UserAvatar };

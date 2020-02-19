@@ -1,12 +1,14 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
+import TodoPageContainer from './TodoPage.style';
+import Header from '../../components/Header';
+import Main from '../../components/Main';
 
 const TodoPage = () => {
   return (
-    <>
+    <TodoPageContainer>
       <Header />
-      Todo page
-    </>
+      <Main />
+    </TodoPageContainer>
   );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { MdAddBox, MdDeleteSweep } from 'react-icons/md';
 import TodoListImg from '../../assets/TodoList.svg';
 import { MainContainer, Title, Image, Lists } from './Main.style';
-import List from '../../containers/List';
+import Card from '../../containers/Card';
 
 const Main = () => {
   return (
@@ -13,8 +13,8 @@ const Main = () => {
       </Title>
       <Image src={TodoListImg} alt='todoList' />
       <Lists>
-        <List Icon={MdAddBox} />
-        <List Icon={MdDeleteSweep} />
+        <Card Icon={MdAddBox} todoList />
+        <Card Icon={MdDeleteSweep} doneList />
       </Lists>
     </MainContainer>
   );

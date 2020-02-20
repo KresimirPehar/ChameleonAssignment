@@ -2,19 +2,18 @@ import styled from 'styled-components';
 import sizeMixin from '../../utils/mixins';
 import colors from '../../constants/colors';
 
-const TasksContainer = styled.div`
+const CardContainer = styled.div`
   ${sizeMixin('45%', '400px')};
   background-color: #ffffff;
   border-radius: 4px;
 `;
 
 const Header = styled.div`
-  ${sizeMixin('90%', '30px')};
+  ${sizeMixin('90%', '13%')};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px auto;
-  padding-bottom: 5px;
+  margin: 0 auto;
   border-bottom: 1px solid #000000;
   border-bottom-color: ${colors.accent};
 
@@ -32,4 +31,8 @@ const Title = styled.div`
   line-height: 19px;
 `;
 
-export { TasksContainer, Header, Title };
+const Tasks = styled.div`
+  ${sizeMixin('100%', '87%')}
+`;
+
+export { CardContainer, Header, Title, Tasks };

@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import sizeMixin from '../../utils/mixins';
 
 const MainContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   grid-column: 2/3;
+  position: relative;
 `;
 
 const Title = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 65px;
+  position: absolute;
+  top: 50px;
+  width: 50%;
 
   h1 {
     margin-bottom: 10px;
@@ -31,9 +35,20 @@ const Title = styled.div`
 `;
 
 const Image = styled.img`
-  position: relative;
-  top: -60px;
+  ${sizeMixin('550px', '509px')};
+  position: absolute;
+  top: -80px;
+  right: 0;
   z-index: 0;
+  width: 50%;
 `;
 
-export { MainContainer, Title, Image };
+const Lists = styled.div`
+  position: absolute;
+  top: 230px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export { MainContainer, Title, Image, Lists };

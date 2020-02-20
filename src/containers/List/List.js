@@ -1,10 +1,13 @@
 import React from 'react';
-import { TasksContainer, Title } from './List.style';
+import { TasksContainer, Title, Header } from './List.style';
 
-const List = () => {
+const List = ({ Icon }) => {
   return (
     <TasksContainer>
-      <Title>Todo</Title>
+      <Header>
+        <Title>Todo</Title>
+        <Icon />
+      </Header>
     </TasksContainer>
   );
 };

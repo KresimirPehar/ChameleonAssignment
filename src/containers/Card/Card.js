@@ -1,14 +1,20 @@
 import React from 'react';
 import { CardContainer, Title, Header, Tasks } from './Card.style';
+import Task from '../Task';
 
-const Card = ({ Icon, todoList }) => {
+const Card = ({ title, Icon, onIconClick, tasks }) => {
   return (
     <CardContainer>
       <Header>
-        <Title>{todoList ? 'To do' : 'Done'}</Title>
-        <Icon />
+        <Title>{title}</Title>
+        <Icon onClick={onIconClick} />
       </Header>
-      <Tasks />
+      <Tasks>
+        {tasks &&
+          Object.keys(tasks.byId).map(task => (
+            <Task value={tasks.byId[task]} />
+          ))}
+      </Tasks>
     </CardContainer>
   );
 };

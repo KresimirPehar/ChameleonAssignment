@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon as ShowHidePasswordIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/LoginFormLogo.png';
 import {
   Input,
+  EyeIcon,
   Form,
   LoginFormContainer,
   LoginLogo,
@@ -39,11 +39,9 @@ const LoginForm = () => {
             onChange={passwordInputHandler}
           />
           <span>Password</span>
-          <ShowHidePasswordIcon
-            icon={isPasswordHide ? faEyeSlash : faEye}
-            className='eyeIcon'
-            onClick={showHidePasswordHandler}
-          />
+          <EyeIcon onClick={showHidePasswordHandler}>
+            {isPasswordHide ? <IoMdEyeOff /> : <IoMdEye />}
+          </EyeIcon>
         </InputContainer>
         <OptionsContainer>
           <label htmlFor='checkbox'>

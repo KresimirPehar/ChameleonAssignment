@@ -28,13 +28,17 @@ const LoginLogo = styled.img`
 const InputContainer = styled.div`
   position: relative;
   margin-bottom: 40px;
+`;
 
-  .eyeIcon {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    color: ${Colors.accent};
-    cursor: pointer;
+const EyeIcon = styled.div`
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  color: ${Colors.accent};
+  cursor: pointer;
+
+  svg {
+    ${sizeMixin('20px', '20px')};
   }
 `;
 
@@ -132,6 +136,7 @@ export {
   Form,
   LoginFormContainer,
   LoginLogo,
+  EyeIcon,
   Input,
   InputContainer,
   CheckboxInput,

@@ -20,7 +20,8 @@ const Item = styled.div`
     background-color: #f1f1f1;
   }
 
-  .logout {
+  svg {
+    ${sizeMixin('20px', '20px')};
     color: ${colors.accent};
     margin-left: 20px;
   }

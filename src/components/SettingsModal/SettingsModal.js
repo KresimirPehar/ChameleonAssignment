@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon as LogOutIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { MdExitToApp as LogOutIcon } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Item from './SettingsModal.style';
 
@@ -9,7 +8,7 @@ const SettingsModal = () => {
     <>
       <Link to='/'>
         <Item>
-          <LogOutIcon icon={faSignOutAlt} className='logout' />
+          <LogOutIcon />
           <span>Log out</span>
         </Item>
       </Link>

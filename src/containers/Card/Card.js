@@ -2,7 +2,7 @@ import React from 'react';
 import { CardContainer, Title, Header, Tasks } from './Card.style';
 import Task from '../Task';
 
-const Card = ({ title, Icon, onIconClick, tasks }) => {
+const Card = ({ title, Icon, onIconClick, tasks, onEdit }) => {
   return (
     <CardContainer>
       <Header>
@@ -12,7 +12,7 @@ const Card = ({ title, Icon, onIconClick, tasks }) => {
       <Tasks>
         {tasks &&
           Object.keys(tasks.byId).map(task => (
-            <Task value={tasks.byId[task]} />
+            <Task value={tasks.byId[task]} onEdit={onEdit} />
           ))}
       </Tasks>
     </CardContainer>

@@ -1,4 +1,4 @@
-import { ADD_NEW_TODO_TASK } from '../actions/types';
+import { ADD_NEW_TODO_TASK, EDIT_TASK } from '../actions/types';
 
 const initialState = {
   todoTasks: {
@@ -8,7 +8,8 @@ const initialState = {
 
 const addNewTodoTask = state => {
   const newTask = {
-    text: ''
+    text: '',
+    id: ''
   };
   return {
     ...state,
@@ -22,11 +23,22 @@ const addNewTodoTask = state => {
   };
 };
 
+const editTask = (state, action) => ({
+  ...state,
+  todoTasks: {
+    ...state.todoTasks,
+    byId: {
+      '': action.newText
+    }
+  }
+});
+
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_TODO_TASK:
       return addNewTodoTask(state);
-
+    case EDIT_TASK:
+      return editTask(state, action);
     default:
       return state;
   }

@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import TodoListImg from '../../assets/TodoList.svg';
 import { MainContainer, Title, Image, Lists } from './Main.style';
 import Card from '../../containers/Card';
-import { addNewTodoTask } from '../../redux/actions/todoActions';
+import { addNewTodoTask, editTask } from '../../redux/actions/todoActions';
 
 const Main = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => state.todoTasks);
 
   const onAddTask = () => dispatch(addNewTodoTask());
+  const onEditTask = e => dispatch(editTask(e.target.value));
 
   return (
     <MainContainer>
@@ -24,6 +25,7 @@ const Main = () => {
           title='To do'
           Icon={MdAddBox}
           onIconClick={onAddTask}
+          onEdit={onEditTask}
           tasks={tasks}
         />
         <Card title='Done' Icon={MdDeleteSweep} />

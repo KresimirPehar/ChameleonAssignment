@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Task = ({ value }) => {
+const Task = ({ value, onEdit }) => {
   return (
     <div>
-      <input value={value.text} onChange={() => {}} />
+      <input type='text' defaultValue={value.text} onChange={onEdit} />
     </div>
   );
 };

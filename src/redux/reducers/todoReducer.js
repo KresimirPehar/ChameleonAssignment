@@ -34,12 +34,12 @@ const editTask = (state, payload) => {
   };
 };
 
-const todoReducer = (state = initialState, action) => {
-  switch (action.type) {
+const todoReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case ADD_NEW_TODO_TASK:
-      return addNewTodoTask(state, action.payload);
+      return addNewTodoTask(state, payload);
     case EDIT_TASK:
-      return editTask(state, action.payload);
+      return editTask(state, payload);
     default:
       return state;
   }

@@ -6,6 +6,7 @@ const CardContainer = styled.div`
   ${sizeMixin('45%', '400px')};
   background-color: #ffffff;
   border-radius: 4px;
+  overflow-y: auto;
 `;
 
 const Header = styled.div`

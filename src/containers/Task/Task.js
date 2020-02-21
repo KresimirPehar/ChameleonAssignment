@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdMoreVert as TaskOptions } from 'react-icons/md';
 import { InputContainer, CheckboxInput, Input } from './Task.style';
 
 const Task = ({ value, onEdit }) => {
@@ -11,6 +12,7 @@ const Task = ({ value, onEdit }) => {
         onChange={onEdit}
         autoFocus
       />
+      <TaskOptions />
     </InputContainer>
   );
 };

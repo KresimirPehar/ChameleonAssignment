@@ -5,7 +5,17 @@ const InputContainer = styled.div`
   ${sizeMixin('95%', '32px')};
   display: flex;
   position: relative;
-  margin: 0 auto;
+  margin: 5px auto;
+
+  svg {
+    position: absolute;
+    right: 5px;
+    top: 22px;
+    color: grey;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
 `;
 
 const CheckboxInput = styled.input`
@@ -19,8 +29,9 @@ const Input = styled.input`
   display: flex;
   background-color: rgba(34, 34, 34, 0.05);
   border-radius: 4px;
-  margin: 15px auto;
+  margin: 15px auto 0;
   border: 0;
+  padding-right: 25px;
   padding-left: 40px;
   color: #222222;
   font-size: 14px;

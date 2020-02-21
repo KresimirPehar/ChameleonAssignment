@@ -9,7 +9,7 @@ const CardContainer = styled.div`
 `;
 
 const Header = styled.div`
-  ${sizeMixin('90%', '13%')};
+  ${sizeMixin('92%', '13%')};
   display: flex;
   justify-content: space-between;
   align-items: center;

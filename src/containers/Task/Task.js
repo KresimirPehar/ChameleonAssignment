@@ -1,10 +1,17 @@
 import React from 'react';
+import { InputContainer, CheckboxInput, Input } from './Task.style';
 
 const Task = ({ value, onEdit }) => {
   return (
-    <div>
-      <input type='text' defaultValue={value.text} onChange={onEdit} />
-    </div>
+    <InputContainer>
+      <CheckboxInput type='checkbox' />
+      <Input
+        type='text'
+        defaultValue={value.text}
+        onChange={onEdit}
+        autoFocus
+      />
+    </InputContainer>
   );
 };
 

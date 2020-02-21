@@ -11,7 +11,7 @@ const Main = () => {
   const tasks = useSelector(state => state.todoTasks);
 
   const onAddTask = () => dispatch(addNewTodoTask());
-  const onEditTask = e => dispatch(editTask(e.target.value));
+  const onEditTask = (newValue, id) => dispatch(editTask(newValue, id));
 
   return (
     <MainContainer>

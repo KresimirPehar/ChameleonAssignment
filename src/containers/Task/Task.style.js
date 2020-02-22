@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import sizeMixin from '../../utils/mixins';
 
 const InputContainer = styled.div`
-  ${sizeMixin('95%', '32px')};
+  width: 95%;
   display: flex;
   position: relative;
   margin: 5px auto;
@@ -10,7 +10,7 @@ const InputContainer = styled.div`
   svg {
     position: absolute;
     right: 5px;
-    top: 22px;
+    top: 8px;
     color: grey;
     height: 20px;
     width: 20px;
@@ -20,7 +20,7 @@ const InputContainer = styled.div`
 
 const CheckboxInput = styled.input`
   position: absolute;
-  top: 22px;
+  top: 8px;
   margin-left: 4%;
 `;
 
@@ -29,7 +29,6 @@ const Input = styled.input`
   display: flex;
   background-color: rgba(34, 34, 34, 0.05);
   border-radius: 4px;
-  margin: 15px auto 0;
   border: 0;
   padding-right: 25px;
   padding-left: 40px;

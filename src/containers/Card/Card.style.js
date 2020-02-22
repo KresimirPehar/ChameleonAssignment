@@ -34,6 +34,7 @@ const Title = styled.div`
 
 const Tasks = styled.div`
   ${sizeMixin('100%', '87%')}
+  margin-top: 20px;
 `;
 
 export { CardContainer, Header, Title, Tasks };

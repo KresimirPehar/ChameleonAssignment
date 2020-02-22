@@ -8,6 +8,7 @@ const InputContainer = styled.div`
   margin: 5px auto;
 
   svg {
+    display: none;
     position: absolute;
     right: 5px;
     top: 8px;
@@ -22,12 +23,12 @@ const CheckboxInput = styled.input`
   position: absolute;
   top: 8px;
   margin-left: 4%;
+  cursor: pointer;
 `;
 
 const Input = styled.input`
   ${sizeMixin('95%', '32px')};
   display: flex;
-  background-color: rgba(34, 34, 34, 0.05);
   border-radius: 4px;
   border: 0;
   padding-right: 25px;
@@ -39,6 +40,11 @@ const Input = styled.input`
 
   &:focus {
     outline: 0;
+    background-color: rgba(34, 34, 34, 0.05);
+
+    + svg {
+      display: block;
+    }
   }
 `;
 

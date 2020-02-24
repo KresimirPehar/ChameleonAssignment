@@ -10,14 +10,14 @@ const Task = ({ value, onEdit, id }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const handle = e => {
+    const closeContainer = e => {
       e.stopPropagation();
       // Close task options container when clicked outside of it
       if (isTaskOptions) setIsTaskOptions(false);
     };
     // Listen when the user clicks outside of the task options container
-    window.addEventListener('click', handle);
-    return () => window.removeEventListener('click', handle);
+    window.addEventListener('click', closeContainer);
+    return () => window.removeEventListener('click', closeContainer);
   }, [isTaskOptions]);
 
   const onInputCheck = () => dispatch(doneTask(id));

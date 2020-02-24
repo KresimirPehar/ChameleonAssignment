@@ -8,7 +8,15 @@ import { addNewTodoTask, editTask } from '../../redux/actions/todoActions';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector(state => state.todoTasks);
+  const todoTasks = useSelector(state => state.todoTasks);
+
+  const doneTasks = Object.keys(todoTasks.byId)
+    .filter(key => todoTasks.byId[key].done === true)
+    .reduce((obj, key) => {
+      const doneTasks = obj;
+      doneTasks[key] = todoTasks.byId[key];
+      return doneTasks;
+    }, {});
 
   const onAddTask = () => dispatch(addNewTodoTask());
   const onEditTask = (newValue, id) => dispatch(editTask(newValue, id));
@@ -26,9 +34,9 @@ const Main = () => {
           Icon={MdAddBox}
           onIconClick={onAddTask}
           onEdit={onEditTask}
-          tasks={tasks}
+          tasks={todoTasks.byId}
         />
-        <Card title='Done' Icon={MdDeleteSweep} />
+        <Card title='Done' Icon={MdDeleteSweep} tasks={doneTasks} />
       </Lists>
     </MainContainer>
   );

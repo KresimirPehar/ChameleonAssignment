@@ -11,13 +11,14 @@ const Card = ({ title, Icon, onIconClick, tasks, onEdit, onDone }) => {
       </Header>
       <Tasks>
         {tasks &&
-          Object.keys(tasks.byId).map(task => (
+          Object.keys(tasks).map(task => (
             <Task
-              key={tasks.byId[task].id}
-              id={tasks.byId[task].id}
-              value={tasks.byId[task]}
+              key={tasks[task].id}
+              id={tasks[task].id}
+              value={tasks[task]}
               onEdit={onEdit}
               onDone={onDone}
+              title={title}
             />
           ))}
       </Tasks>

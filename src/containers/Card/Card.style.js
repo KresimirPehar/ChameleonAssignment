@@ -6,7 +6,6 @@ const CardContainer = styled.div`
   ${sizeMixin('45%', '400px')};
   background-color: #ffffff;
   border-radius: 4px;
-  overflow-y: auto;
 `;
 
 const Header = styled.div`
@@ -17,13 +16,13 @@ const Header = styled.div`
   margin: 0 auto;
   border-bottom: 1px solid #000000;
   border-bottom-color: ${colors.accent};
-
+  
   svg {
     ${sizeMixin('24px', '24px')}
     color: ${colors.accent};
     cursor: pointer;
   }
-`;
+  `;
 
 const Title = styled.div`
   color: #222222;
@@ -34,7 +33,7 @@ const Title = styled.div`
 
 const Tasks = styled.div`
   ${sizeMixin('100%', '87%')}
-  margin-top: 20px;
+  overflow-y: auto;
 `;
 
 export { CardContainer, Header, Title, Tasks };

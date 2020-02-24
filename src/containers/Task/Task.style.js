@@ -5,16 +5,25 @@ const InputContainer = styled.div`
   width: 95%;
   display: flex;
   position: relative;
-  margin: 5px auto;
+  margin: 10px auto 5px;
+
+  &:hover {
+    input {
+      background-color: rgba(34, 34, 34, 0.05);
+    }
+
+    svg {
+      display: block;
+    }
+  }
 
   svg {
+    ${sizeMixin('25px', '20px')};
     display: none;
     position: absolute;
     right: 5px;
     top: 8px;
     color: grey;
-    height: 20px;
-    width: 20px;
     cursor: pointer;
   }
 `;
@@ -41,10 +50,6 @@ const Input = styled.input`
   &:focus {
     outline: 0;
     background-color: rgba(34, 34, 34, 0.05);
-
-    + svg {
-      display: block;
-    }
   }
 `;
 

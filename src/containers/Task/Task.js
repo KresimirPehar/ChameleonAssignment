@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { MdMoreVert as TaskOptionsIcon } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
 import { InputContainer, CheckboxInput, Input } from './Task.style';
-import { doneUndoneTask } from '../../redux/actions/todoActions';
 import TaskOptions from '../../components/TaskOptions';
 
-const Task = ({ value, onEdit, id, title, onDelete }) => {
+const Task = ({ value, onEdit, onDoneUndone, id, title, onDelete }) => {
   const [isTaskOptions, setIsTaskOptions] = useState(false);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const closeContainer = e => {
@@ -20,25 +17,25 @@ const Task = ({ value, onEdit, id, title, onDelete }) => {
     return () => window.removeEventListener('click', closeContainer);
   }, [isTaskOptions]);
 
-  const onInputCheck = e => dispatch(doneUndoneTask(id, e.target.checked));
-
-  const onChangeHandler = e => onEdit(e.target.value, id);
   const taskOptionsHandler = e => {
     e.stopPropagation();
     setIsTaskOptions(prevState => !prevState);
   };
 
+  const onDoneUndoneHandler = e => onDoneUndone(id, e.target.checked);
+  const onEditHandler = e => onEdit(id, e.target.value);
+
   return (
     <InputContainer>
       <CheckboxInput
         type='checkbox'
-        onClick={onInputCheck}
+        onClick={onDoneUndoneHandler}
         defaultChecked={title === 'Done'}
       />
       <Input
         type='text'
         defaultValue={value.text}
-        onChange={onChangeHandler}
+        onChange={onEditHandler}
         autoFocus
         disabled={title === 'Done'}
       />

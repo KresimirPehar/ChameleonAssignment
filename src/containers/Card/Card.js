@@ -7,8 +7,8 @@ const Card = ({
   Icon,
   onIconClick,
   tasks,
-  onEdit,
-  onDone,
+  onEditTask,
+  onDoneUndoneTask,
   onDeleteTask
 }) => {
   return (
@@ -24,8 +24,8 @@ const Card = ({
               key={tasks[task].id}
               id={tasks[task].id}
               value={tasks[task]}
-              onEdit={onEdit}
-              onDone={onDone}
+              onEdit={onEditTask}
+              onDoneUndone={onDoneUndoneTask}
               onDelete={onDeleteTask}
               title={title}
             />

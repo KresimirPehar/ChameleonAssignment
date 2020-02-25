@@ -10,7 +10,8 @@ import {
   deleteTask,
   doneUndoneTask,
   deleteDoneTasks,
-  loadTasks
+  loadTasks,
+  dragAndDropTask
 } from '../../redux/actions/todoActions';
 import { tasksSelector } from '../../redux/reducers/todoReducer';
 
@@ -29,6 +30,8 @@ const Main = () => {
     dispatch(doneUndoneTask(id, checkStatus));
   const onDeleteTask = id => dispatch(deleteTask(id));
   const onDeleteDoneTasks = () => dispatch(deleteDoneTasks());
+  const dragAndDropTaskHandler = (taskData, dropTarget) =>
+    dispatch(dragAndDropTask(taskData, dropTarget));
 
   return (
     <MainContainer>
@@ -46,6 +49,7 @@ const Main = () => {
           onDoneUndoneTask={onDoneUndoneTask}
           onDeleteTask={onDeleteTask}
           tasks={todoTasks}
+          dragAndDropTaskHandler={dragAndDropTaskHandler}
         />
         <Card
           title='Done'
@@ -53,6 +57,7 @@ const Main = () => {
           tasks={doneTasks}
           onDoneUndoneTask={onDoneUndoneTask}
           onDeleteDoneTasks={onDeleteDoneTasks}
+          dragAndDropTaskHandler={dragAndDropTaskHandler}
         />
       </Lists>
     </MainContainer>

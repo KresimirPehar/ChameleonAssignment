@@ -5,7 +5,8 @@ import {
   DONE_UNDONE_TASK,
   DELETE_TASK,
   DELETE_ALL_DONE,
-  LOAD_TASKS
+  LOAD_TASKS,
+  DRAG_AND_DROP_TASK
 } from '../actions/types';
 
 export const tasksSelector = doneStatus =>
@@ -103,6 +104,17 @@ const deleteAllDone = (state, payload) => ({
   }
 });
 
+const dragAndDropTask = (state, payload) => ({
+  ...state,
+  todoTasks: {
+    ...state.todoTasks,
+    byId: {
+      ...state.todoTasks.byId,
+      [payload.updatedTask.id]: payload.updatedTask
+    }
+  }
+});
+
 const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOAD_TASKS:
@@ -117,6 +129,8 @@ const todoReducer = (state = initialState, { type, payload }) => {
       return deleteTask(state, payload);
     case DELETE_ALL_DONE:
       return deleteAllDone(state, payload);
+    case DRAG_AND_DROP_TASK:
+      return dragAndDropTask(state, payload);
     default:
       return state;
   }

@@ -10,15 +10,29 @@ const Card = ({
   onEditTask,
   onDoneUndoneTask,
   onDeleteTask,
-  onDeleteDoneTasks
+  onDeleteDoneTasks,
+  dragAndDropTaskHandler
 }) => {
+  const allowDrop = e => e.preventDefault();
+
+  const onDropHandler = e => {
+    e.preventDefault();
+    const dropTarget = e.target.id;
+    const taskData = e.dataTransfer.getData('task');
+    dragAndDropTaskHandler(JSON.parse(taskData), dropTarget);
+  };
+
   return (
     <CardContainer>
       <Header>
         <Title>{title}</Title>
         <Icon onClick={title === 'To do' ? onAddTask : onDeleteDoneTasks} />
       </Header>
-      <Tasks>
+      <Tasks
+        id={title === 'To do' ? 'todoCard' : 'doneCard'}
+        onDragOver={allowDrop}
+        onDrop={onDropHandler}
+      >
         {tasks &&
           Object.keys(tasks).map(task => (
             <Task

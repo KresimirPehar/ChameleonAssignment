@@ -4,7 +4,8 @@ import {
   DONE_UNDONE_TASK,
   DELETE_TASK,
   DELETE_ALL_DONE,
-  LOAD_TASKS
+  LOAD_TASKS,
+  DRAG_AND_DROP_TASK
 } from './types';
 import db from '../../db';
 
@@ -87,4 +88,22 @@ export const deleteDoneTasks = () => async dispatch => {
     type: DELETE_ALL_DONE,
     payload: { leftTasks }
   });
+};
+
+export const dragAndDropTask = (taskData, dropTarget) => dispatch => {
+  if (
+    (taskData.card === 'todoCard' && dropTarget === 'doneCard') ||
+    (taskData.card === 'doneCard' && dropTarget === 'todoCard')
+  ) {
+    const updatedTask = {
+      id: taskData.id,
+      text: taskData.text,
+      done: taskData.done === 'true' ? 'false' : 'true'
+    };
+    db.table('todoList').update(updatedTask.id, updatedTask);
+    dispatch({
+      type: DRAG_AND_DROP_TASK,
+      payload: { updatedTask }
+    });
+  }
 };

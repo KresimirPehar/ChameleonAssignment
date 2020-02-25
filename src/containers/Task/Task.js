@@ -24,10 +24,23 @@ const Task = ({ value, onEdit, onDoneUndone, id, title, onDelete }) => {
 
   const onDoneUndoneHandler = e =>
     onDoneUndone(id, e.target.checked.toString());
+
   const onEditHandler = e => onEdit(id, e.target.value);
 
+  const onDragStartHandler = e => {
+    const taskData = {
+      card: e.target.id,
+      ...value
+    };
+    e.dataTransfer.setData('task', JSON.stringify(taskData));
+  };
+
   return (
-    <InputContainer>
+    <InputContainer
+      id={title === 'To do' ? 'todoCard' : 'doneCard'}
+      onDragStart={onDragStartHandler}
+      draggable
+    >
       <CheckboxInput
         type='checkbox'
         onClick={onDoneUndoneHandler}

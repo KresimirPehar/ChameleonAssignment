@@ -47,9 +47,18 @@ const Input = styled.input`
   font-weight: 400;
   line-height: 17px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:focus {
     outline: 0;
     background-color: rgba(34, 34, 34, 0.05);
+    cursor: text;
+  }
+
+  &:active {
+    cursor: grab;
   }
 `;
 

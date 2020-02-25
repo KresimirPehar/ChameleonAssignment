@@ -5,7 +5,7 @@ import { InputContainer, CheckboxInput, Input } from './Task.style';
 import { doneUndoneTask } from '../../redux/actions/todoActions';
 import TaskOptions from '../../components/TaskOptions';
 
-const Task = ({ value, onEdit, id, title }) => {
+const Task = ({ value, onEdit, id, title, onDelete }) => {
   const [isTaskOptions, setIsTaskOptions] = useState(false);
   const dispatch = useDispatch();
 
@@ -43,7 +43,7 @@ const Task = ({ value, onEdit, id, title }) => {
         disabled={title === 'Done'}
       />
       {title === 'To do' && <TaskOptionsIcon onClick={taskOptionsHandler} />}
-      {isTaskOptions && <TaskOptions />}
+      {isTaskOptions && <TaskOptions id={id} onDelete={onDelete} />}
     </InputContainer>
   );
 };

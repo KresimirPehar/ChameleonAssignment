@@ -1,4 +1,9 @@
-import { ADD_NEW_TODO_TASK, EDIT_TASK, DONE_UNDONE_TASK } from './types';
+import {
+  ADD_NEW_TODO_TASK,
+  EDIT_TASK,
+  DONE_UNDONE_TASK,
+  DELETE_TASK
+} from './types';
 import db from '../../db';
 
 export const addNewTodoTask = () => dispatch => {
@@ -33,6 +38,17 @@ export const doneUndoneTask = (id, checkStatus) => dispatch => {
       dispatch({
         type: DONE_UNDONE_TASK,
         payload: { id, ...updatedTask }
+      })
+    );
+};
+
+export const deleteTask = id => dispatch => {
+  db.table('todoList')
+    .delete(id)
+    .then(() =>
+      dispatch({
+        type: DELETE_TASK,
+        payload: { id }
       })
     );
 };

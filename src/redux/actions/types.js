@@ -1,3 +1,4 @@
+export const LOAD_TASKS = 'LOAD_TASKS';
 export const ADD_TASK = 'ADD_TASK';
 export const EDIT_TASK = 'EDIT_TASK';
 export const DONE_UNDONE_TASK = 'DONE_UNDONE_TASK';

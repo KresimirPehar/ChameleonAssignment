@@ -3,9 +3,23 @@ import {
   EDIT_TASK,
   DONE_UNDONE_TASK,
   DELETE_TASK,
-  DELETE_ALL_DONE
+  DELETE_ALL_DONE,
+  LOAD_TASKS
 } from './types';
 import db from '../../db';
+
+export const loadTasks = () => async dispatch => {
+  const tasksArray = await db.table('todoList').toArray();
+  const tasksObject = Object.keys(tasksArray).reduce((obj, key) => {
+    const tasks = obj;
+    tasks[tasksArray[key].id] = tasksArray[key];
+    return tasks;
+  }, {});
+  dispatch({
+    type: LOAD_TASKS,
+    payload: { tasks: tasksObject }
+  });
+};
 
 export const addTask = () => dispatch => {
   const newTask = { text: '', done: 'false' };

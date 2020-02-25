@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MdAddBox, MdDeleteSweep } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import TodoListImg from '../../assets/TodoList.svg';
@@ -9,12 +9,17 @@ import {
   editTask,
   deleteTask,
   doneUndoneTask,
-  deleteDoneTasks
+  deleteDoneTasks,
+  loadTasks
 } from '../../redux/actions/todoActions';
 import { tasksSelector } from '../../redux/reducers/todoReducer';
 
 const Main = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadTasks());
+  }, [dispatch]);
+
   const todoTasks = useSelector(tasksSelector('false'));
   const doneTasks = useSelector(tasksSelector('true'));
 

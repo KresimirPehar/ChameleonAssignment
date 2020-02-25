@@ -18,7 +18,7 @@ export const addNewTodoTask = () => dispatch => {
     );
 };
 
-export const editTask = (newValue, id) => dispatch => {
+export const editTask = (id, newValue) => dispatch => {
   const updatedTask = { text: newValue };
   db.table('todoList')
     .update(id, updatedTask)

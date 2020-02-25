@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import {
-  ADD_NEW_TODO_TASK,
+  ADD_TASK,
   EDIT_TASK,
   DONE_UNDONE_TASK,
   DELETE_TASK,
@@ -28,7 +28,7 @@ const initialState = {
   }
 };
 
-const addNewTodoTask = (state, payload) => ({
+const addTask = (state, payload) => ({
   ...state,
   todoTasks: {
     ...state.todoTasks,
@@ -96,8 +96,8 @@ const deleteAllDone = (state, payload) => ({
 
 const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ADD_NEW_TODO_TASK:
-      return addNewTodoTask(state, payload);
+    case ADD_TASK:
+      return addTask(state, payload);
     case EDIT_TASK:
       return editTask(state, payload);
     case DONE_UNDONE_TASK:

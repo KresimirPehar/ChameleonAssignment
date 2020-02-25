@@ -5,7 +5,7 @@ import TodoListImg from '../../assets/TodoList.svg';
 import { MainContainer, Title, Image, Lists } from './Main.style';
 import Card from '../../containers/Card';
 import {
-  addNewTodoTask,
+  addTask,
   editTask,
   deleteTask,
   doneUndoneTask,
@@ -18,7 +18,7 @@ const Main = () => {
   const todoTasks = useSelector(tasksSelector('false'));
   const doneTasks = useSelector(tasksSelector('true'));
 
-  const onAddTask = () => dispatch(addNewTodoTask());
+  const onAddTask = () => dispatch(addTask());
   const onEditTask = (id, newValue) => dispatch(editTask(id, newValue));
   const onDoneUndoneTask = (id, checkStatus) =>
     dispatch(doneUndoneTask(id, checkStatus));

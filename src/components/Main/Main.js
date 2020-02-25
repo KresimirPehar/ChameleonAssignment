@@ -8,20 +8,22 @@ import {
   addNewTodoTask,
   editTask,
   deleteTask,
-  doneUndoneTask
+  doneUndoneTask,
+  deleteDoneTasks
 } from '../../redux/actions/todoActions';
 import { tasksSelector } from '../../redux/reducers/todoReducer';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const todoTasks = useSelector(tasksSelector(false));
-  const doneTasks = useSelector(tasksSelector(true));
+  const todoTasks = useSelector(tasksSelector('false'));
+  const doneTasks = useSelector(tasksSelector('true'));
 
   const onAddTask = () => dispatch(addNewTodoTask());
   const onEditTask = (id, newValue) => dispatch(editTask(id, newValue));
   const onDoneUndoneTask = (id, checkStatus) =>
     dispatch(doneUndoneTask(id, checkStatus));
   const onDeleteTask = id => dispatch(deleteTask(id));
+  const onDeleteDoneTasks = () => dispatch(deleteDoneTasks());
 
   return (
     <MainContainer>
@@ -34,7 +36,7 @@ const Main = () => {
         <Card
           title='To do'
           Icon={MdAddBox}
-          onIconClick={onAddTask}
+          onAddTask={onAddTask}
           onEditTask={onEditTask}
           onDoneUndoneTask={onDoneUndoneTask}
           onDeleteTask={onDeleteTask}
@@ -45,6 +47,7 @@ const Main = () => {
           Icon={MdDeleteSweep}
           tasks={doneTasks}
           onDoneUndoneTask={onDoneUndoneTask}
+          onDeleteDoneTasks={onDeleteDoneTasks}
         />
       </Lists>
     </MainContainer>

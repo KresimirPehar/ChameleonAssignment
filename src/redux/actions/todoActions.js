@@ -2,12 +2,13 @@ import {
   ADD_NEW_TODO_TASK,
   EDIT_TASK,
   DONE_UNDONE_TASK,
-  DELETE_TASK
+  DELETE_TASK,
+  DELETE_ALL_DONE
 } from './types';
 import db from '../../db';
 
 export const addNewTodoTask = () => dispatch => {
-  const newTask = { text: '', done: false };
+  const newTask = { text: '', done: 'false' };
   db.table('todoList')
     .add(newTask)
     .then(id =>
@@ -51,4 +52,25 @@ export const deleteTask = id => dispatch => {
         payload: { id }
       })
     );
+};
+
+export const deleteDoneTasks = () => async dispatch => {
+  const leftTasks = await db.transaction('rw', 'todoList', async () => {
+    await db
+      .table('todoList')
+      .where('done')
+      .equals('true')
+      .delete();
+    const tasksArray = await db.table('todoList').toArray();
+    const tasksObject = Object.keys(tasksArray).reduce((obj, key) => {
+      const tasks = obj;
+      tasks[tasksArray[key].id] = tasksArray[key];
+      return tasks;
+    }, {});
+    return tasksObject;
+  });
+  dispatch({
+    type: DELETE_ALL_DONE,
+    payload: { leftTasks }
+  });
 };

@@ -22,7 +22,8 @@ const Task = ({ value, onEdit, onDoneUndone, id, title, onDelete }) => {
     setIsTaskOptions(prevState => !prevState);
   };
 
-  const onDoneUndoneHandler = e => onDoneUndone(id, e.target.checked);
+  const onDoneUndoneHandler = e =>
+    onDoneUndone(id, e.target.checked.toString());
   const onEditHandler = e => onEdit(id, e.target.value);
 
   return (

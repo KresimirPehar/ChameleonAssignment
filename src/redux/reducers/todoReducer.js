@@ -3,7 +3,8 @@ import {
   ADD_NEW_TODO_TASK,
   EDIT_TASK,
   DONE_UNDONE_TASK,
-  DELETE_TASK
+  DELETE_TASK,
+  DELETE_ALL_DONE
 } from '../actions/types';
 
 export const tasksSelector = doneStatus =>
@@ -85,6 +86,14 @@ const deleteTask = (state, payload) => {
   };
 };
 
+const deleteAllDone = (state, payload) => ({
+  ...state,
+  todoTasks: {
+    ...state.todoTasks,
+    byId: payload.leftTasks
+  }
+});
+
 const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_NEW_TODO_TASK:
@@ -95,6 +104,8 @@ const todoReducer = (state = initialState, { type, payload }) => {
       return doneTask(state, payload);
     case DELETE_TASK:
       return deleteTask(state, payload);
+    case DELETE_ALL_DONE:
+      return deleteAllDone(state, payload);
     default:
       return state;
   }

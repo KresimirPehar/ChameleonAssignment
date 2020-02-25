@@ -5,17 +5,18 @@ import Task from '../Task';
 const Card = ({
   title,
   Icon,
-  onIconClick,
+  onAddTask,
   tasks,
   onEditTask,
   onDoneUndoneTask,
-  onDeleteTask
+  onDeleteTask,
+  onDeleteDoneTasks
 }) => {
   return (
     <CardContainer>
       <Header>
         <Title>{title}</Title>
-        <Icon onClick={onIconClick} />
+        <Icon onClick={title === 'To do' ? onAddTask : onDeleteDoneTasks} />
       </Header>
       <Tasks>
         {tasks &&

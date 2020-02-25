@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MdMoreVert as TaskOptionsIcon } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { InputContainer, CheckboxInput, Input } from './Task.style';
-import { doneTask } from '../../redux/actions/todoActions';
+import { doneUndoneTask } from '../../redux/actions/todoActions';
 import TaskOptions from '../../components/TaskOptions';
 
 const Task = ({ value, onEdit, id, title }) => {
@@ -20,7 +20,8 @@ const Task = ({ value, onEdit, id, title }) => {
     return () => window.removeEventListener('click', closeContainer);
   }, [isTaskOptions]);
 
-  const onInputCheck = () => dispatch(doneTask(id));
+  const onInputCheck = e => dispatch(doneUndoneTask(id, e.target.checked));
+
   const onChangeHandler = e => onEdit(e.target.value, id);
   const taskOptionsHandler = e => {
     e.stopPropagation();

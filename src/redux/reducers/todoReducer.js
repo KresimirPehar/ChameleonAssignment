@@ -1,4 +1,8 @@
-import { ADD_NEW_TODO_TASK, EDIT_TASK, DONE_TASK } from '../actions/types';
+import {
+  ADD_NEW_TODO_TASK,
+  EDIT_TASK,
+  DONE_UNDONE_TASK
+} from '../actions/types';
 
 const initialState = {
   todoTasks: {
@@ -57,7 +61,7 @@ const todoReducer = (state = initialState, { type, payload }) => {
       return addNewTodoTask(state, payload);
     case EDIT_TASK:
       return editTask(state, payload);
-    case DONE_TASK:
+    case DONE_UNDONE_TASK:
       return doneTask(state, payload);
     default:
       return state;

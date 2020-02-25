@@ -5,18 +5,12 @@ import TodoListImg from '../../assets/TodoList.svg';
 import { MainContainer, Title, Image, Lists } from './Main.style';
 import Card from '../../containers/Card';
 import { addNewTodoTask, editTask } from '../../redux/actions/todoActions';
+import { tasksSelector } from '../../redux/reducers/todoReducer';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const todoTasks = useSelector(state => state.todoTasks);
-
-  const doneTasks = Object.keys(todoTasks.byId)
-    .filter(key => todoTasks.byId[key].done === true)
-    .reduce((obj, key) => {
-      const doneTasks = obj;
-      doneTasks[key] = todoTasks.byId[key];
-      return doneTasks;
-    }, {});
+  const todoTasks = useSelector(tasksSelector(false));
+  const doneTasks = useSelector(tasksSelector(true));
 
   const onAddTask = () => dispatch(addNewTodoTask());
   const onEditTask = (newValue, id) => dispatch(editTask(newValue, id));
@@ -34,7 +28,7 @@ const Main = () => {
           Icon={MdAddBox}
           onIconClick={onAddTask}
           onEdit={onEditTask}
-          tasks={todoTasks.byId}
+          tasks={todoTasks}
         />
         <Card title='Done' Icon={MdDeleteSweep} tasks={doneTasks} />
       </Lists>

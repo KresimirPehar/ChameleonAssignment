@@ -1,8 +1,24 @@
+import { createSelector } from 'reselect';
 import {
   ADD_NEW_TODO_TASK,
   EDIT_TASK,
   DONE_UNDONE_TASK
 } from '../actions/types';
+
+export const tasksSelector = doneStatus =>
+  createSelector(
+    state => {
+      const allTasks = state.todoTasks.byId;
+      return Object.keys(allTasks)
+        .filter(key => allTasks[key].done === doneStatus)
+        .reduce((obj, key) => {
+          const tasks = obj;
+          tasks[key] = allTasks[key];
+          return tasks;
+        }, {});
+    },
+    tasks => tasks
+  );
 
 const initialState = {
   todoTasks: {

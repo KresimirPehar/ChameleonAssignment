@@ -9,14 +9,11 @@ import {
   ADD_TASK_IMAGE
 } from './types';
 import db from '../../db';
+import arrayToObject from '../../utils/helpers';
 
 export const loadTasks = () => async dispatch => {
   const tasksArray = await db.table('todoList').toArray();
-  const tasksObject = Object.keys(tasksArray).reduce((obj, key) => {
-    const tasks = obj;
-    tasks[tasksArray[key].id] = tasksArray[key];
-    return tasks;
-  }, {});
+  const tasksObject = arrayToObject(tasksArray);
   dispatch({
     type: LOAD_TASKS,
     payload: { tasks: tasksObject }
@@ -75,11 +72,7 @@ export const deleteDoneTasks = () => async dispatch => {
       .equals('true')
       .delete();
     const tasksArray = await db.table('todoList').toArray();
-    const tasksObject = Object.keys(tasksArray).reduce((obj, key) => {
-      const tasks = obj;
-      tasks[tasksArray[key].id] = tasksArray[key];
-      return tasks;
-    }, {});
+    const tasksObject = arrayToObject(tasksArray);
     return tasksObject;
   });
   dispatch({

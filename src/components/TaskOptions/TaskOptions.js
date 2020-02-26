@@ -2,10 +2,13 @@ import React from 'react';
 import { MdImage, MdDelete } from 'react-icons/md';
 import { TaskOptionsContainer, Item } from './TaskOptions.style';
 
-const TaskOptions = ({ id, onDelete, onAddImage }) => {
+const TaskOptions = ({ id, onDelete, onAddImage, setIsTaskOptions }) => {
   const onDeleteTask = () => onDelete(id);
 
-  const onAddImageHandler = e => onAddImage(e, id);
+  const onAddImageHandler = e => {
+    onAddImage(e, id);
+    setIsTaskOptions(false);
+  };
 
   return (
     <TaskOptionsContainer id='optionsContainer'>

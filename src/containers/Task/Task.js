@@ -68,7 +68,12 @@ const Task = ({
       {title === 'To do' && <TaskOptionsIcon onClick={taskOptionsHandler} />}
       {value.imageData && <Image src={value.imageData} />}
       {isTaskOptions && (
-        <TaskOptions id={id} onDelete={onDelete} onAddImage={onAddImage} />
+        <TaskOptions
+          id={id}
+          onDelete={onDelete}
+          onAddImage={onAddImage}
+          setIsTaskOptions={setIsTaskOptions}
+        />
       )}
     </InputContainer>
   );

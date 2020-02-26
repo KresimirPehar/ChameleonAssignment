@@ -5,8 +5,9 @@ const TaskOptionsContainer = styled.div`
   width: 200px;
   display: flex;
   flex-direction: column;
+  border-radius 4px;
   position: absolute;
-  right: 0;
+  right: 1px;
   background-color: #ffffff;
   z-index: 1;
   padding-top: 10px;

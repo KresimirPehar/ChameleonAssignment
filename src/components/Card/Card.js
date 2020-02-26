@@ -16,6 +16,7 @@ const Card = ({
 }) => {
   const allowDrop = e => e.preventDefault();
 
+  // on task drop
   const onDropHandler = e => {
     e.preventDefault();
     const dropTarget = e.target.id;

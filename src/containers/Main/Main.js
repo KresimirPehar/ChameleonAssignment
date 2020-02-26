@@ -35,6 +35,7 @@ const Main = () => {
     const file = e.target.files[0];
     const reader = new FileReader();
     if (file) {
+      // read uploaded image
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = () => dispatch(addTaskImage(id, reader.result));
     }

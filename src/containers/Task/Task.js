@@ -39,6 +39,7 @@ const Task = ({
 
   const onEditHandler = e => onEdit(id, e.target.value);
 
+  // on task drag start
   const onDragStartHandler = e => {
     const taskData = {
       card: e.target.id,

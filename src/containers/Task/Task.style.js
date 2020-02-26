@@ -23,7 +23,7 @@ const InputContainer = styled.div`
     display: none;
     position: absolute;
     right: 0;
-    top: 8px;
+    top: 5px;
     color: grey;
     cursor: pointer;
   }

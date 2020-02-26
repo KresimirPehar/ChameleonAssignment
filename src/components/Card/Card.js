@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardContainer, Title, Header, Tasks } from './Card.style';
-import Task from '../Task';
+import Task from '../../containers/Task';
 
 const Card = ({
   title,

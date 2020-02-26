@@ -3,7 +3,7 @@ import { HeaderContainer, Elements, UserAvatar, Logo } from './Header.style';
 import Avatar from '../../assets/UserAvatar.png';
 import LogoImage from '../../assets/TodoLogo.svg';
 import LogoTitle from '../../assets/TodoLogoTitle.svg';
-import SettingsModal from '../SettingsModal';
+import SettingsModal from '../../components/SettingsModal';
 
 const Header = () => {
   const [isSettingsModal, setIsSettingsModal] = useState(false);

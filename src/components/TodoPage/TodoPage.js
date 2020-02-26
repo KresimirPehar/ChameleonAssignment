@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoPageContainer from './TodoPage.style';
-import Header from '../Header';
-import Main from '../Main';
+import Header from '../../containers/Header';
+import Main from '../../containers/Main';
 
 const TodoPage = () => {
   return (

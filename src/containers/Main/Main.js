@@ -3,7 +3,7 @@ import { MdAddBox, MdDeleteSweep } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import TodoListImg from '../../assets/TodoList.svg';
 import { MainContainer, Title, Image, Lists } from './Main.style';
-import Card from '../../containers/Card';
+import Card from '../../components/Card';
 import {
   addTask,
   editTask,

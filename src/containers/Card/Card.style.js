@@ -32,8 +32,11 @@ const Title = styled.div`
 `;
 
 const Tasks = styled.div`
-  ${sizeMixin('100%', '87%')}
+  ${sizeMixin('92%', '87%')}
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 `;
 
 export { CardContainer, Header, Title, Tasks };

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import sizeMixin from '../../utils/mixins';
 
 const InputContainer = styled.div`
-  width: 95%;
   display: flex;
+  flex-direction: column;
+  width: 100%;
   position: relative;
-  margin: 10px auto 5px;
 
   &:hover {
     input {
@@ -31,8 +31,8 @@ const InputContainer = styled.div`
 const CheckboxInput = styled.input`
   position: absolute;
   top: 8px;
-  margin-left: 4%;
   cursor: pointer;
+  margin-left: 0;
 `;
 
 const Input = styled.input`
@@ -40,8 +40,7 @@ const Input = styled.input`
   display: flex;
   border-radius: 4px;
   border: 0;
-  padding-right: 25px;
-  padding-left: 40px;
+  padding: 0 25px;
   color: #222222;
   font-size: 14px;
   font-weight: 400;
@@ -62,4 +61,10 @@ const Input = styled.input`
   }
 `;
 
-export { InputContainer, CheckboxInput, Input };
+const Image = styled.img`
+  ${sizeMixin('100%', '164px')};
+  background-size: 100%;
+  border-radius: 8px 8px 0 0;
+`;
+
+export { InputContainer, CheckboxInput, Input, Image };

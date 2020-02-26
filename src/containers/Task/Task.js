@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MdMoreVert as TaskOptionsIcon } from 'react-icons/md';
-import { InputContainer, CheckboxInput, Input } from './Task.style';
+import { InputContainer, CheckboxInput, Input, Image } from './Task.style';
 import TaskOptions from '../../components/TaskOptions';
 
 const Task = ({
@@ -66,6 +66,7 @@ const Task = ({
         disabled={title === 'Done'}
       />
       {title === 'To do' && <TaskOptionsIcon onClick={taskOptionsHandler} />}
+      {value.imageData && <Image src={value.imageData} />}
       {isTaskOptions && (
         <TaskOptions id={id} onDelete={onDelete} onAddImage={onAddImage} />
       )}

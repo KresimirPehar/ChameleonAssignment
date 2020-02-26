@@ -13,7 +13,7 @@ import {
 export const tasksSelector = doneStatus =>
   createSelector(
     state => {
-      const allTasks = state.todoTasks.byId;
+      const allTasks = state.byId;
       return Object.keys(allTasks)
         .filter(key => allTasks[key].done === doneStatus)
         .reduce((obj, key) => {
@@ -26,27 +26,19 @@ export const tasksSelector = doneStatus =>
   );
 
 const initialState = {
-  todoTasks: {
-    byId: {}
-  }
+  byId: {}
 };
 
 const loadTasks = (state, payload) => ({
   ...state,
-  todoTasks: {
-    ...state.todoTasks,
-    byId: payload.tasks
-  }
+  byId: payload.tasks
 });
 
 const addTask = (state, payload) => ({
   ...state,
-  todoTasks: {
-    ...state.todoTasks,
-    byId: {
-      ...state.todoTasks.byId,
-      [payload.id]: payload
-    }
+  byId: {
+    ...state.byId,
+    [payload.id]: payload
   }
 });
 
@@ -54,14 +46,11 @@ const editTask = (state, payload) => {
   const { id } = payload;
   return {
     ...state,
-    todoTasks: {
-      ...state.todoTasks,
-      byId: {
-        ...state.todoTasks.byId,
-        [id]: {
-          ...state.todoTasks.byId[id],
-          text: payload.text
-        }
+    byId: {
+      ...state.byId,
+      [id]: {
+        ...state.byId[id],
+        text: payload.text
       }
     }
   };
@@ -71,14 +60,11 @@ const doneTask = (state, payload) => {
   const { id } = payload;
   return {
     ...state,
-    todoTasks: {
-      ...state.todoTasks,
-      byId: {
-        ...state.todoTasks.byId,
-        [id]: {
-          ...state.todoTasks.byId[id],
-          done: payload.done
-        }
+    byId: {
+      ...state.byId,
+      [id]: {
+        ...state.byId[id],
+        done: payload.done
       }
     }
   };
@@ -88,48 +74,36 @@ const addTaskImage = (state, payload) => {
   const { id, imageData } = payload;
   return {
     ...state,
-    todoTasks: {
-      ...state.todoTasks,
-      byId: {
-        ...state.todoTasks.byId,
-        [id]: {
-          ...state.todoTasks.byId[id],
-          imageData
-        }
+    byId: {
+      ...state.byId,
+      [id]: {
+        ...state.byId[id],
+        imageData
       }
     }
   };
 };
 
 const deleteTask = (state, payload) => {
-  const { [payload.id]: deletedTask, ...rest } = state.todoTasks.byId;
+  const { [payload.id]: deletedTask, ...rest } = state.byId;
   return {
     ...state,
-    todoTasks: {
-      ...state.todoTasks,
-      byId: {
-        ...rest
-      }
+    byId: {
+      ...rest
     }
   };
 };
 
 const deleteAllDone = (state, payload) => ({
   ...state,
-  todoTasks: {
-    ...state.todoTasks,
-    byId: payload.leftTasks
-  }
+  byId: payload.leftTasks
 });
 
 const dragAndDropTask = (state, payload) => ({
   ...state,
-  todoTasks: {
-    ...state.todoTasks,
-    byId: {
-      ...state.todoTasks.byId,
-      [payload.updatedTask.id]: payload.updatedTask
-    }
+  byId: {
+    ...state.byId,
+    [payload.updatedTask.id]: payload.updatedTask
   }
 });
 

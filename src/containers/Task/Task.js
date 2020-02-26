@@ -3,14 +3,26 @@ import { MdMoreVert as TaskOptionsIcon } from 'react-icons/md';
 import { InputContainer, CheckboxInput, Input } from './Task.style';
 import TaskOptions from '../../components/TaskOptions';
 
-const Task = ({ value, onEdit, onDoneUndone, id, title, onDelete }) => {
+const Task = ({
+  value,
+  onEdit,
+  onDoneUndone,
+  id,
+  title,
+  onDelete,
+  onAddImage
+}) => {
   const [isTaskOptions, setIsTaskOptions] = useState(false);
 
   useEffect(() => {
     const closeContainer = e => {
       e.stopPropagation();
       // Close task options container when clicked outside of it
-      if (isTaskOptions) setIsTaskOptions(false);
+      if (
+        isTaskOptions &&
+        e.target.id !== ('optionsContainer' && 'addImageInput')
+      )
+        setIsTaskOptions(false);
     };
     // Listen when the user clicks outside of the task options container
     window.addEventListener('click', closeContainer);
@@ -54,7 +66,9 @@ const Task = ({ value, onEdit, onDoneUndone, id, title, onDelete }) => {
         disabled={title === 'Done'}
       />
       {title === 'To do' && <TaskOptionsIcon onClick={taskOptionsHandler} />}
-      {isTaskOptions && <TaskOptions id={id} onDelete={onDelete} />}
+      {isTaskOptions && (
+        <TaskOptions id={id} onDelete={onDelete} onAddImage={onAddImage} />
+      )}
     </InputContainer>
   );
 };

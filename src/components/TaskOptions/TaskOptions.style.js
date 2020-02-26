@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import sizeMixin from '../../utils/mixins';
 
 const TaskOptionsContainer = styled.div`
   width: 200px;
@@ -24,6 +25,14 @@ const Item = styled.div`
 
   &:hover {
     background-color: rgba(34, 34, 34, 0.05);
+  }
+
+  input {
+    ${sizeMixin('100%', '100%')};
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
   }
 
   svg {

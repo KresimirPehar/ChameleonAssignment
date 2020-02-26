@@ -5,7 +5,8 @@ import {
   DELETE_TASK,
   DELETE_ALL_DONE,
   LOAD_TASKS,
-  DRAG_AND_DROP_TASK
+  DRAG_AND_DROP_TASK,
+  ADD_TASK_IMAGE
 } from './types';
 import db from '../../db';
 
@@ -56,6 +57,15 @@ export const doneUndoneTask = (id, checkStatus) => dispatch => {
         payload: { id, ...updatedTask }
       })
     );
+};
+
+export const addTaskImage = (id, imageData) => dispatch => {
+  const updatedTask = { imageData };
+  db.table('todoList').update(id, updatedTask);
+  dispatch({
+    type: ADD_TASK_IMAGE,
+    payload: { id, imageData }
+  });
 };
 
 export const deleteTask = id => dispatch => {

@@ -11,7 +11,8 @@ const Card = ({
   onDoneUndoneTask,
   onDeleteTask,
   onDeleteDoneTasks,
-  dragAndDropTaskHandler
+  dragAndDropTaskHandler,
+  onAddImage
 }) => {
   const allowDrop = e => e.preventDefault();
 
@@ -43,6 +44,7 @@ const Card = ({
               onDoneUndone={onDoneUndoneTask}
               onDelete={onDeleteTask}
               title={title}
+              onAddImage={onAddImage}
             />
           ))}
       </Tasks>

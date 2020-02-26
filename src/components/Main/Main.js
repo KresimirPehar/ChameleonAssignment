@@ -11,7 +11,8 @@ import {
   doneUndoneTask,
   deleteDoneTasks,
   loadTasks,
-  dragAndDropTask
+  dragAndDropTask,
+  addTaskImage
 } from '../../redux/actions/todoActions';
 import { tasksSelector } from '../../redux/reducers/todoReducer';
 
@@ -29,6 +30,16 @@ const Main = () => {
   const onDoneUndoneTask = (id, checkStatus) =>
     dispatch(doneUndoneTask(id, checkStatus));
   const onDeleteTask = id => dispatch(deleteTask(id));
+
+  const onAddImage = (e, id) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = () => dispatch(addTaskImage(id, reader.result));
+    }
+  };
+
   const onDeleteDoneTasks = () => dispatch(deleteDoneTasks());
   const dragAndDropTaskHandler = (taskData, dropTarget) =>
     dispatch(dragAndDropTask(taskData, dropTarget));
@@ -50,6 +61,7 @@ const Main = () => {
           onDeleteTask={onDeleteTask}
           tasks={todoTasks}
           dragAndDropTaskHandler={dragAndDropTaskHandler}
+          onAddImage={onAddImage}
         />
         <Card
           title='Done'

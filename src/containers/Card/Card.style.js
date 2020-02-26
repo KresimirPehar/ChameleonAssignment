@@ -34,6 +34,7 @@ const Title = styled.div`
 const Tasks = styled.div`
   ${sizeMixin('92%', '87%')}
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   margin: 0 auto;

@@ -21,7 +21,7 @@ const InputContainer = styled.div`
     ${sizeMixin('25px', '20px')};
     display: none;
     position: absolute;
-    right: 5px;
+    right: 0;
     top: 8px;
     color: grey;
     cursor: pointer;
@@ -36,7 +36,7 @@ const CheckboxInput = styled.input`
 `;
 
 const Input = styled.input`
-  ${sizeMixin('95%', '32px')};
+  ${sizeMixin('80%', '32px')};
   display: flex;
   border-radius: 4px;
   border: 0;

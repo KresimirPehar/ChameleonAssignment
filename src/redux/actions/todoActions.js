@@ -23,60 +23,48 @@ export const loadTasks = () => async dispatch => {
   });
 };
 
-export const addTask = () => dispatch => {
+export const addTask = () => async dispatch => {
   const newTask = { text: '', done: 'false' };
-  db.table('todoList')
-    .add(newTask)
-    .then(id =>
-      dispatch({
-        type: ADD_TASK,
-        payload: { id, ...newTask }
-      })
-    );
+  const id = await db.table('todoList').add(newTask);
+  dispatch({
+    type: ADD_TASK,
+    payload: { id, ...newTask }
+  });
 };
 
-export const editTask = (id, newValue) => dispatch => {
+export const editTask = (id, newValue) => async dispatch => {
   const updatedTask = { text: newValue };
-  db.table('todoList')
-    .update(id, updatedTask)
-    .then(() =>
-      dispatch({
-        type: EDIT_TASK,
-        payload: { id, ...updatedTask }
-      })
-    );
+  await db.table('todoList').update(id, updatedTask);
+  dispatch({
+    type: EDIT_TASK,
+    payload: { id, ...updatedTask }
+  });
 };
 
-export const doneUndoneTask = (id, checkStatus) => dispatch => {
+export const doneUndoneTask = (id, checkStatus) => async dispatch => {
   const updatedTask = { done: checkStatus };
-  db.table('todoList')
-    .update(id, updatedTask)
-    .then(() =>
-      dispatch({
-        type: DONE_UNDONE_TASK,
-        payload: { id, ...updatedTask }
-      })
-    );
+  await db.table('todoList').update(id, updatedTask);
+  dispatch({
+    type: DONE_UNDONE_TASK,
+    payload: { id, ...updatedTask }
+  });
 };
 
-export const addTaskImage = (id, imageData) => dispatch => {
+export const addTaskImage = (id, imageData) => async dispatch => {
   const updatedTask = { imageData };
-  db.table('todoList').update(id, updatedTask);
+  await db.table('todoList').update(id, updatedTask);
   dispatch({
     type: ADD_TASK_IMAGE,
     payload: { id, imageData }
   });
 };
 
-export const deleteTask = id => dispatch => {
-  db.table('todoList')
-    .delete(id)
-    .then(() =>
-      dispatch({
-        type: DELETE_TASK,
-        payload: { id }
-      })
-    );
+export const deleteTask = id => async dispatch => {
+  await db.table('todoList').delete(id);
+  dispatch({
+    type: DELETE_TASK,
+    payload: { id }
+  });
 };
 
 export const deleteDoneTasks = () => async dispatch => {
@@ -100,7 +88,7 @@ export const deleteDoneTasks = () => async dispatch => {
   });
 };
 
-export const dragAndDropTask = (taskData, dropTarget) => dispatch => {
+export const dragAndDropTask = (taskData, dropTarget) => async dispatch => {
   if (
     (taskData.card === 'todoCard' && dropTarget === 'doneCard') ||
     (taskData.card === 'doneCard' && dropTarget === 'todoCard')
@@ -110,7 +98,7 @@ export const dragAndDropTask = (taskData, dropTarget) => dispatch => {
       text: taskData.text,
       done: taskData.done === 'true' ? 'false' : 'true'
     };
-    db.table('todoList').update(updatedTask.id, updatedTask);
+    await db.table('todoList').update(updatedTask.id, updatedTask);
     dispatch({
       type: DRAG_AND_DROP_TASK,
       payload: { updatedTask }

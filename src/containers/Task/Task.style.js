@@ -6,7 +6,7 @@ const InputContainer = styled.div`
   flex-direction: column;
   width: 100%;
   position: relative;
-  margin-bottom: 5px;
+  margin: 10px 0 5px;
 
   &:hover {
     input {
@@ -37,8 +37,9 @@ const CheckboxInput = styled.input`
 `;
 
 const Input = styled.input`
-  ${sizeMixin('80%', '32px')};
+  ${sizeMixin('100%', '32px')};
   display: flex;
+  box-sizing: border-box;
   border-radius: 4px;
   border: 0;
   padding: 0 25px;

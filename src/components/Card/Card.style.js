@@ -6,6 +6,11 @@ const CardContainer = styled.div`
   ${sizeMixin('45%', '400px')};
   background-color: #ffffff;
   border-radius: 4px;
+
+  @media (max-width: 750px) {
+    ${sizeMixin('90vw', '450px')};
+    margin-bottom: 30px;
+  }
 `;
 
 const Header = styled.div`

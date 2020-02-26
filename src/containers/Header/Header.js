@@ -12,7 +12,7 @@ const Header = () => {
     setIsSettingsModal(prevState => !prevState);
 
   return (
-    <HeaderContainer>
+    <HeaderContainer className='header'>
       <Elements>
         <Logo>
           <img src={LogoImage} alt='logoImage' />
@@ -21,7 +21,12 @@ const Header = () => {
         <UserAvatar onClick={settingsModalHandler}>
           <span>Username</span>
           <img src={Avatar} alt='userAvatar' />
-          {isSettingsModal && <SettingsModal />}
+          {isSettingsModal && (
+            <SettingsModal
+              isSettingsModal={isSettingsModal}
+              userAvatar={Avatar}
+            />
+          )}
         </UserAvatar>
       </Elements>
     </HeaderContainer>

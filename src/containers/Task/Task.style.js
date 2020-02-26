@@ -30,8 +30,9 @@ const InputContainer = styled.div`
 `;
 
 const CheckboxInput = styled.input`
+  ${sizeMixin('20px', '20px')};
   position: absolute;
-  top: 8px;
+  top: 5px;
   cursor: pointer;
   margin-left: 0;
 `;

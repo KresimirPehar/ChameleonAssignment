@@ -19,6 +19,10 @@ const Form = styled.div`
   -webkit-box-shadow: 1px -1px 5px 2px rgba(212, 201, 212, 1);
   -moz-box-shadow: 1px -1px 5px 2px rgba(212, 201, 212, 1);
   box-shadow: 1px -1px 5px 2px rgba(212, 201, 212, 1);
+
+  @media (max-width: 750px) {
+    box-shadow: none;
+  }
 `;
 
 const LoginLogo = styled.img`
@@ -83,7 +87,7 @@ const CheckboxInput = styled.input`
 `;
 
 const OptionsContainer = styled.div`
-  width: 100%;
+  width: 95%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -99,7 +103,7 @@ const OptionsContainer = styled.div`
   }
 
   input {
-    ${sizeMixin('24px', '24px')}
+    ${sizeMixin('20px', '20px')}
   }
 
   span {

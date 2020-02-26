@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         background-color: ${colors.bgColor};
+
+        @media (max-width: 550px) {
+            background-color: #ffffff;
+          }
     }
     
     html, body, #root {

@@ -6,6 +6,11 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   grid-column: 1/4;
   z-index: 1;
+
+  @media (max-width: 750px) {
+    width: 100vw;
+    background-color: #232c33;
+  }
 `;
 
 const Elements = styled.div`
@@ -13,6 +18,16 @@ const Elements = styled.div`
   display: grid;
   grid-template-columns: 15% 1fr 15%;
   background-color: #232c33;
+
+  @media (max-width: 750px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    margin: 0 auto;
+  }
 `;
 
 const Logo = styled.div`
@@ -21,6 +36,10 @@ const Logo = styled.div`
   grid-column: 2;
   position: relative;
   top: 50%;
+
+  @media (max-width: 750px) {
+    top: 0;
+  }
 
   img {
     margin-right: 10px;
@@ -36,12 +55,21 @@ const UserAvatar = styled.div`
   bottom: 50%;
   cursor: pointer;
 
+  @media (max-width: 750px) {
+    right: 0;
+    bottom: 0;
+  }
+
   span {
     color: #ffffff;
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
     margin-right: 22px;
+
+    @media (max-width: 750px) {
+      display: none;
+    }
   }
 
   img {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { MdAddBox, MdDeleteSweep } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import TodoListImg from '../../assets/TodoList.svg';
@@ -25,25 +25,39 @@ const Main = () => {
   const todoTasks = useSelector(tasksSelector('false'));
   const doneTasks = useSelector(tasksSelector('true'));
 
-  const onAddTask = () => dispatch(addTask());
-  const onEditTask = (id, newValue) => dispatch(editTask(id, newValue));
-  const onDoneUndoneTask = (id, checkStatus) =>
-    dispatch(doneUndoneTask(id, checkStatus));
-  const onDeleteTask = id => dispatch(deleteTask(id));
+  const onAddTask = useCallback(() => dispatch(addTask()), [dispatch]);
 
-  const onAddImage = (e, id) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    if (file) {
-      // read uploaded image
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = () => dispatch(addTaskImage(id, reader.result));
-    }
-  };
+  const onEditTask = useCallback(
+    (id, newValue) => dispatch(editTask(id, newValue)),
+    [dispatch]
+  );
+  const onDoneUndoneTask = useCallback(
+    (id, checkStatus) => dispatch(doneUndoneTask(id, checkStatus)),
+    [dispatch]
+  );
+  const onDeleteTask = useCallback(id => dispatch(deleteTask(id)), [dispatch]);
 
-  const onDeleteDoneTasks = () => dispatch(deleteDoneTasks());
-  const dragAndDropTaskHandler = (taskData, dropTarget) =>
-    dispatch(dragAndDropTask(taskData, dropTarget));
+  const onAddImage = useCallback(
+    (e, id) => {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      if (file) {
+        // read uploaded image
+        reader.readAsDataURL(file);
+        reader.onload = () => dispatch(addTaskImage(id, reader.result));
+      }
+    },
+    [dispatch]
+  );
+
+  const onDeleteDoneTasks = useCallback(() => dispatch(deleteDoneTasks()), [
+    dispatch
+  ]);
+
+  const dragAndDropTaskHandler = useCallback(
+    (taskData, dropTarget) => dispatch(dragAndDropTask(taskData, dropTarget)),
+    [dispatch]
+  );
 
   return (
     <MainContainer>

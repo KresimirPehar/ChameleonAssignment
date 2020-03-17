@@ -89,7 +89,8 @@ export const dragAndDropTask = (taskData, dropTarget) => async dispatch => {
     const updatedTask = {
       id: taskData.id,
       text: taskData.text,
-      done: taskData.done === 'true' ? 'false' : 'true'
+      done: taskData.done === 'true' ? 'false' : 'true',
+      imageData: taskData.imageData
     };
     await db.table('todoList').update(updatedTask.id, updatedTask);
     dispatch({

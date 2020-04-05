@@ -1,6 +1,14 @@
 {
-  "extends": ["airbnb", "prettier", "prettier/react"],
-  "plugins": ["prettier", "react-hooks"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react"
+  ],
+  "plugins": ["prettier", "react-hooks", "jest", "jest-dom", "testing-library"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -29,7 +37,19 @@
         "assert": "both",
         "depth": 3
       }
-    ]
+    ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-to-have-attribute": "error",
+    "jest/valid-expect": "error",
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debug": "warn"
   },
   "globals": {
     "window": true,

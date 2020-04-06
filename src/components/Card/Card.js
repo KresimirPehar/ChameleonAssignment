@@ -1,10 +1,13 @@
 import React from 'react';
 import { CardContainer, Title, Header, Tasks } from './Card.style';
 import Task from '../../containers/Task';
+import {
+  MdAddBox as AddIcon,
+  MdDeleteSweep as DeleteIcon
+} from 'react-icons/md';
 
 const Card = ({
   title,
-  Icon,
   onAddTask,
   tasks,
   onEditTask,
@@ -28,7 +31,12 @@ const Card = ({
     <CardContainer>
       <Header>
         <Title>{title}</Title>
-        <Icon onClick={title === 'To do' ? onAddTask : onDeleteDoneTasks} />
+        <button
+          data-testid='cardIcon'
+          onClick={title === 'To do' ? onAddTask : onDeleteDoneTasks}
+        >
+          {title === 'To do' ? <AddIcon /> : <DeleteIcon />}
+        </button>
       </Header>
       <Tasks
         id={title === 'To do' ? 'todoCard' : 'doneCard'}

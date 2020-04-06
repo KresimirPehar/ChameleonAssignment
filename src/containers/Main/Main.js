@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback } from 'react';
-import { MdAddBox, MdDeleteSweep } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import TodoListImg from '../../assets/TodoList.svg';
 import { MainContainer, Title, Image, Lists } from './Main.style';
@@ -69,7 +68,6 @@ const Main = () => {
       <Lists>
         <Card
           title='To do'
-          Icon={MdAddBox}
           onAddTask={onAddTask}
           onEditTask={onEditTask}
           onDoneUndoneTask={onDoneUndoneTask}
@@ -80,7 +78,6 @@ const Main = () => {
         />
         <Card
           title='Done'
-          Icon={MdDeleteSweep}
           tasks={doneTasks}
           onDoneUndoneTask={onDoneUndoneTask}
           onDeleteDoneTasks={onDeleteDoneTasks}

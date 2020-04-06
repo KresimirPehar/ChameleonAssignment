@@ -27,6 +27,13 @@ const Header = styled.div`
     color: ${colors.accent};
     cursor: pointer;
   }
+
+  button {
+    border: none;
+    padding: 0;
+    height: 24px;
+    outline: none;
+  }
   `;
 
 const Title = styled.div`

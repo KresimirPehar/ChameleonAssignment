@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter as Router } from 'react-router-dom';
 import LoginForm from '.';
 
@@ -10,9 +11,9 @@ it('should show/hide password when icon is clicked', () => {
     </Router>
   );
   const input = getByLabelText('Password input');
-  expect(input.type).toBe('password');
+  expect(input).toHaveAttribute('type', 'password');
   fireEvent.click(getByLabelText('Show password'));
-  expect(input.type).toBe('text');
+  expect(input).toHaveAttribute('type', 'text');
   fireEvent.click(getByLabelText('Show password'));
-  expect(input.type).toBe('password');
+  expect(input).toHaveAttribute('type', 'password');
 });

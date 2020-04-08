@@ -54,12 +54,18 @@ const Task = memo(
         />
         <Input
           type='text'
+          aria-label='task-input'
           defaultValue={value.text}
           onChange={onEditHandler}
           autoFocus
           disabled={title === 'Done'}
         />
-        {title === 'To do' && <TaskOptionsIcon onClick={taskOptionsHandler} />}
+        {title === 'To do' && (
+          <TaskOptionsIcon
+            onClick={taskOptionsHandler}
+            data-testid='optionsIcon'
+          />
+        )}
         {value.imageData && <Image src={value.imageData} />}
         {isTaskOptions && (
           <TaskOptions

@@ -1,10 +1,10 @@
 import React from 'react';
-import { CardContainer, Title, Header, Tasks } from './Card.style';
-import Task from '../../containers/Task';
 import {
   MdAddBox as AddIcon,
   MdDeleteSweep as DeleteIcon
 } from 'react-icons/md';
+import Task from '../../containers/Task';
+import { CardContainer, Title, Header, Tasks } from './Card.style';
 
 const Card = ({
   title,
@@ -32,6 +32,7 @@ const Card = ({
       <Header>
         <Title>{title}</Title>
         <button
+          type='submit'
           data-testid='cardIcon'
           onClick={title === 'To do' ? onAddTask : onDeleteDoneTasks}
         >

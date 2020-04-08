@@ -37,9 +37,10 @@ const LoginForm = () => {
             type={isPasswordHide ? 'password' : 'text'}
             value={passwordValue}
             onChange={passwordInputHandler}
+            aria-label='Password input'
           />
           <span>Password</span>
-          <EyeIcon onClick={showHidePasswordHandler}>
+          <EyeIcon onClick={showHidePasswordHandler} aria-label='Show password'>
             {isPasswordHide ? <IoMdEyeOff /> : <IoMdEye />}
           </EyeIcon>
         </InputContainer>

@@ -47,12 +47,12 @@ it('should display task options modal when options icon is clicked', () => {
 });
 
 it('should close task options modal when clicked outside of it', () => {
-  const { getByTestId, getByText, queryByText } = render(
+  const { getByTestId, queryByText } = render(
     <Task title='To do' value={{ text: '' }} />
   );
   fireEvent.click(getByTestId('optionsIcon'));
-  expect(getByText(/delete/i)).toBeInTheDocument();
-  expect(getByText(/image/i)).toBeInTheDocument();
+  expect(queryByText(/delete/i)).toBeInTheDocument();
+  expect(queryByText(/image/i)).toBeInTheDocument();
 
   fireEvent.click(window);
   expect(queryByText(/delete/i)).not.toBeInTheDocument();

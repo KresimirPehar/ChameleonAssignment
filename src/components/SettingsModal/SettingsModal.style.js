@@ -2,18 +2,45 @@ import styled from 'styled-components';
 import sizeMixin from '../../utils/mixins';
 import colors from '../../constants/colors';
 
+const materialUIStyle = {
+  list: {
+    width: 250,
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  userAvatar: {
+    justifySelf: 'center',
+    flexGrow: 1
+  },
+  listItemText: {
+    marginLeft: '10px'
+  },
+  drawerButton: {
+    position: 'absolute',
+    height: '50px',
+    top: 0,
+    left: 0,
+    backgrounColor: 'red'
+  },
+  logOutIcon: {
+    color: 'black',
+    fontSize: '18px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '40px'
+  },
+  logOutIconLabel: {
+    marginLeft: '5px',
+    color: 'black',
+    fontSize: '18px'
+  }
+};
+
 const SettingsModalContainer = styled.div`
   @media (max-width: 750px) {
-    width: ${props => (props.isSettingsModal ? '100vw' : '0')};
-    height: ${props => (props.isSettingsModal ? '100vh' : '0')};
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background-color: #ffffff;
-    position: absolute;
-    top: 0;
-    right: ${props => (props.isSettingsModal ? '-15vw' : '-105vw')};
-    transition: 0.5s;
+    position: relative;
   }
 `;
 
@@ -21,26 +48,13 @@ const UserAvatar = styled.div`
   display: none;
   @media (max-width: 750px) {
     display: block;
-    position: absolute;
-    top: 30px;
-    left: 50px;
     display: flex;
+    justify-content: space-between;
   }
 
   img {
     ${sizeMixin('40px', '40px')}
     border-radius: 100%;
-  }
-
-  span {
-    display: block;
-    position: absolute;
-    left: 60px;
-    top: 10px;
-    color: black;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 17px;
   }
 `;
 
@@ -100,4 +114,4 @@ const Item = styled.div`
   }
 `;
 
-export { SettingsModalContainer, UserAvatar, Item };
+export { SettingsModalContainer, UserAvatar, Item, materialUIStyle };
